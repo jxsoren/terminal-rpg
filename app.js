@@ -739,8 +739,6 @@ function space(){
       }
   
       pistolSoldOut = `SOLD OUT`
-  
-      player.balance -= 10
       
       if(vendingChoice === 2 && weapons.includes(` Pistol`)){
         space()
@@ -748,7 +746,7 @@ function space(){
         space()
         whatNext()
       } else {
-      player.balance += 10
+        player.balance -= 10
       weapons.push(` Pistol`)
       space()
       console.log(`Purchace Complete. ${circusOfValues[2]} has now been aquired.`)
