@@ -3,7 +3,7 @@ const colors = require('colors');
 
 // Global Variables
 let game0ver = false;
-let inventory = [`First Aid Kit`];
+let inventory = [` First Aid Kit`];
 let weapons = [`Wrench`.brightYellow.bold]
 let pistolSoldOut = [`Pistol`.bold]
 let shotgunSoldOut = [`Shotgun`.bold]
@@ -215,7 +215,7 @@ function restoreBandage(){
 
 function restoreFitstAidKit(){
     const inventoryIndex = inventory.indexOf(`First Aid Kit`)
-    if(inventory.includes(`First Aid Kit`)){
+    if(inventory.includes(` First Aid Kit`)){
         inventory.splice(inventoryIndex, 1)
     }
 
@@ -274,13 +274,13 @@ function makeEnemy(){
 function loot(){
     const randomNum = Math.floor(Math.random() * 4); 
     if(randomNum === 0){
-        return ` First Aid Kit `
+        return ` First Aid Kit`
     } else if(randomNum === 1) {
-        return ` Old Tom Whiskey `
+        return ` Old Tom Whiskey`
     } else if (randomNum ===  2){
-        return ` Old Tom Whiskey `
+        return ` Old Tom Whiskey`
     } else if(randomNum === 3) {
-        return ` Cigarette `
+        return ` Cigarette`
     } 
 };
 
@@ -293,6 +293,7 @@ function moneyTime(){
 
 function attackStage(enemy){
     while(enemy.health > 0 && player.health > 0){
+        console.log(`*on radio* ATLAS:`.brightYellow.italic + `${player.name}`.brightCyan.bold +` currently has `+`${player.health}hp/125hp`.brightGreen.bold + `${enemy.name}`.brightRed.bold + `currently has `+`${enemy.health}hp!`.brightRed.bold)
         const userResponse = ask.keyInSelect([`Attack the ${enemy.name}`, `Run away from the fight`], `*on radio* ATLAS:`.brightYellow.italic + ` Make a choice and make it snappy, ${player.name.cyan}`)
         console.log(smallSpacing)
 
@@ -381,7 +382,7 @@ function attackStage(enemy){
                     }
             }
 
-            if(player.health < 30 && inventory.includes(`First Aid Kit`)){
+            if(player.health < 30 && inventory.includes(` First Aid Kit`)){
                 console.log(smallSpacing)
                 console.log(`*on radio* ATLAS:`.brightYellow.italic + `YOUR HEALTH IS VERY LOW!!! USE A FIRST AID KIT TO RESTORE YOURSELF BACK TO FULL HP!!! YOUR HEALTH IS VERY LOW!!! USE A FIRST AID KIT TO RESTORE YOURSELF BACK TO FULL HP!!! YOUR HEALTH IS VERY LOW!!! USE A FIRST AID KIT TO RESTORE YOURSELF BACK TO FULL HP!!! YOUR HEALTH IS VERY LOW!!! USE A FIRST AID KIT TO RESTORE YOURSELF BACK TO FULL HP!!!`)
                 const urgent = ask.keyInSelect(["USE FIRST AID KIT!"], "USE THE FIRST AID KIT OR YOU WILL DIE!!!")
@@ -422,12 +423,12 @@ function attackStage(enemy){
                     }
 
 
-                    console.log(`OBJECTIVE PROGRESS! You currently have ${player.adam}/6 Adam Bottles. Collect 1 more Adam Bottle for the fuel mixture to get out of this hellhole`)
+                    console.log(`*on radio* ATLAS:`.brightYellow.italic + `OBJECTIVE PROGRESS! You currently have ${player.adam}/6 Adam Bottles. Collect 1 more Adam Bottle for the fuel mixture to get out of this hellhole`.brightGreen)
                 }
 
                 if(enemy.name === `Spider Splicer` && player.eve < 4){
                     player.eve += 1
-                    console.log(`OBJECTIVE PROGRESS! You currently have ${player.eve}/3 Eve Samples. Collect all needed samples to help us create the mixture to help fuel the getaway submarine!`)
+                    console.log(`*on radio* ATLAS:`.brightYellow.italic + `OBJECTIVE PROGRESS! You currently have ${player.eve}/3 Eve Samples. Collect all needed samples to help us create the mixture to help fuel the getaway submarine!`.brightGreen)
                 }
 
                 
