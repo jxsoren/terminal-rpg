@@ -1,14 +1,16 @@
-console.log(`
+const ask = require('readline-sync');
+const colors = require('colors');
 
+let player = {
 
-                            CREDITS
-                           ---------  
-                    Script Writer: Josh Sorensen
-                    
-                    Naritive Inspiration Credits: Bioshock® 2K 
+        eve: 2
+}
 
-                    Lead Game Tester: Liam Crettol
-
-                          
-                           
-                           `)
+while(player.eve > 1){
+    console.log('hello there')
+    
+    if(player.eve < 0){
+        player.eve = -1
+        console.log('YAY')
+    }
+}

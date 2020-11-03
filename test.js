@@ -1,7 +1,7 @@
 const colors = require('colors');
 const ask = require('readline-sync');
 
-function space(){
+function lilSpace(){
   const largeSpacing = 
   
   
@@ -50,7 +50,7 @@ function checkBalance(){
 function pauseFunction(){
   let pauseText = `GAME PAUSED`.underline.cyan.bold
   let currentBalance = `$${player.balance}`.brightGreen 
-  let currentHealth = `${player.health}hp / 100hp`.brightRed
+  let currentHealth = `${player.health} HP / 100 HP`.brightRed
   let pistolRounds = `${player.pistolRounds}`.bold
   let shotgunShells = `${player.shotgunShells}`.bold
   
@@ -120,7 +120,7 @@ let circusOfValuesMenu =
 
 };
 
-space()
+lilSpace()
 starterQuestion()
 function starterQuestion(){
 let circusOrNot = ask.keyInSelect([`Visit ` + `CIRCUS OF VALUES`.rainbow.bold, `No`], `Would you like to visit the ` + `CIRCUS OF VALUES`.rainbow.bold + `?`)
@@ -131,10 +131,10 @@ let circusOrNot = ask.keyInSelect([`Visit ` + `CIRCUS OF VALUES`.rainbow.bold, `
   }
 
   if(circusOrNot === 0){
-    space()
+    lilSpace()
     circusFunction()
     circusChoices()
-    space()
+    lilSpace()
   }
   
   if (circusOrNot === 1){
@@ -145,7 +145,7 @@ let circusOrNot = ask.keyInSelect([`Visit ` + `CIRCUS OF VALUES`.rainbow.bold, `
 }
 
 function checkInv(){
-  space()
+  lilSpace()
   let checkInvOptions = [`Go back to ` + `CIRCUS OF VALUES`.rainbow.bold, `Exit inventory and resume game`]
   pauseFunction()
   let checkInvChoice = ask.keyInSelect(checkInvOptions, `You are currently in your inventory. What would you like to do next?`)
@@ -153,7 +153,7 @@ function checkInv(){
     circusFunction()
     circusChoices()
   } else if (checkInvChoice === 1){
-    // proceed()
+    // lookforenemy()
   } else if (checkInvChoice <= -1){
     console.log(`PICK ONE OF THE OPTIONS ABOVE, NOT THIS ONE!`.red.underline.bold)
     checkInv()
@@ -165,7 +165,7 @@ function circusChoices(){
   let vendingChoice = ask.keyInSelect(circusOfValues, `What would you like to purchace from the ` + `CIRCUS OF VALUES`.rainbow.bold + `?` + ` You currently have ${checkBalance()}` )
 
   if(vendingChoice <= -1){
-    space()
+    lilSpace()
     console.log(`YOU CANNOT CANCEL AT THIS TIME. CHOOSE AGAIN.`)
     circusFunction()
     circusChoices()
@@ -173,43 +173,43 @@ function circusChoices(){
   
   if(vendingChoice === 0 && player.balance >= 2 || vendingChoice === 0 && player.balance <= 1){
     if(player.balance <= 1){
-      space()
+      lilSpace()
       console.log(`*scratchy, prerecorded, mocking clown voice* `.brightYellow .bold +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.rainbow .bold + `--You don't have enough money to purchase this item.--` .bold)
       circusChoices()
     }
 
     inventory.push(` Bandage`)
     player.balance -= 2
-    space()
+    lilSpace()
     console.log(`${circusOfValues[0]} has ben added to your inventory.`)
-    space()
+    lilSpace()
     whatNext()
   };  
   
   if (vendingChoice === 1 && player.balance >= 5 || vendingChoice === 1 && player.balance < 4){
     if(player.balance < 4){
-      space()
+      lilSpace()
       console.log(`*scratchy, prerecorded, mocking clown voice* `.brightYellow .bold +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.rainbow .bold + `--You don't have enough money to purchase this item.--` .bold)
-      space()
+      lilSpace()
       circusChoices()
     }
     
     inventory.push(` First Aid Kit`)
     player.balance -= 5 
-    space()
+    lilSpace()
     console.log(`${circusOfValues[1]} has ben added to your inventory.`)
-    space()
+    lilSpace()
     whatNext()
   };
 
   if (vendingChoice === 2 && player.balance >= 10 || vendingChoice === 2 && player.balance < 9){
     if(player.balance < 9){
-      space()
+      lilSpace()
       console.log(`*scratchy, prerecorded, mocking clown voice* `.brightYellow .bold +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.rainbow .bold + ` --You don't have enough money to purchase this item.--` .bold) 
-      space()
+      lilSpace()
       circusFunction()
       circusChoices()
-      space()
+      lilSpace()
     }
 
     pistolSoldOut = `SOLD OUT`
@@ -217,16 +217,16 @@ function circusChoices(){
     player.balance -= 10
     
     if(vendingChoice === 2 && weapons.includes(` Pistol`)){
-      space()
+      lilSpace()
       console.log(`This item is `+`SOLD OUT`.brightRed.underline.bold+` dummy.`)
-      space()
+      lilSpace()
       whatNext()
     } else {
     player.balance += 10
     weapons.push(` Pistol`)
-    space()
+    lilSpace()
     console.log(`Purchace Complete. ${circusOfValues[2]} has now been aquired.`)
-    space()
+    lilSpace()
     whatNext()
     }
     
@@ -234,113 +234,113 @@ function circusChoices(){
   
   if(vendingChoice === 3 && player.balance >= 3 || vendingChoice === 3 && player.balance < 2){
     if(player.balance < 2){
-      space()
+      lilSpace()
       console.log(`*scratchy, prerecorded, mocking clown voice* `.brightYellow .bold +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.bold.briightWhite + `--You don't have enough money to purchase this item.--` .bold) 
-      space()
+      lilSpace()
       circusChoices()
     }  
     
     player.pistolRounds += 10
     player.balance -= 3
-    space()
+    lilSpace()
     console.log(`${circusOfValues[3]} has ben added to your ammunition total.`)
-    space()
+    lilSpace()
     whatNext()
   }; 
   
   if(vendingChoice === 4 && player.balance >= 20 || vendingChoice === 4 && player.balance < 19){
     if(player.balance < 19){
-      space()
+      lilSpace()
       console.log(`*scratchy, prerecorded, mocking clown voice* `.brightYellow.bold +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.bold.brightWhite.bold + `--You don't have enough money to purchase this item.--` .bold) 
       circusChoices()
-      space()
+      lilSpace()
     }
 
     player.balance -= 20
 
       if(vendingChoice === 4 && weapons.includes(` Shotgun`)){
-        space()
+        lilSpace()
         console.log(`This item is `+`SOLD OUT`.brightRed.underline.bold+` dummy.`)
-        space()
+        lilSpace()
         whatNext()
       } else {
         weapons.push(` Shotgun`)
-        space()
+        lilSpace()
         console.log(`${circusOfValues[4]} has now been aquired.`)
         shotgunSoldOut = `SOLD OUT`
-        space()
+        lilSpace()
         whatNext()
-        space()
+        lilSpace()
       }
       
   }; 
   
   if(vendingChoice === 5 && player.balance >= 4 || vendingChoice === 5 && player.balance < 2 ){
     if(player.balance < 2){
-      space()
+      lilSpace()
       console.log(`*scratchy, prerecorded, mocking clown voice* `.brightYellow .bold +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.rainbow.rainbow.bold + `--You don't have enough money to purchase this item.--` .bold) 
-      space()
+      lilSpace()
       circusChoices()
-      space()
+      lilSpace()
     }  
 
     player.balance -= 4
     player.shotgunShells += 3
-    space()
+    lilSpace()
     console.log(`${circusOfValues[5]} has ben added to your ammunition total.`)
-    space()
+    lilSpace()
     whatNext()
   };
 
   if (vendingChoice === 6 && player.balance > 3 || vendingChoice === 6 && player.balance < 1 ){
     if(player.balance < 1){
-      space()
+      lilSpace()
       console.log(`*scratchy, prerecorded, mocking clown voice* `.brightYellow .bold +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.bold.brightWhite.bold + `--You don't have enough money to purchase this item.--` .bold).brightRed
-      space()
+      lilSpace()
       circusChoices()
-      space()
+      lilSpace()
     } 
 
     inventory.push(` Scotch`)
     player.balance -= 2
-    space()
+    lilSpace()
     console.log(`${circusOfValues[6]} has ben added to your inventory.`)
-    space()
+    lilSpace()
     whatNext()
   }; 
   
   if(vendingChoice === 7){
-    space()
+    lilSpace()
     checkInv()
-    space()
+    lilSpace()
   };
 
 };
 
 function whatNext(){
-  space()
+  lilSpace()
   let whatQuestion = ask.keyInSelect([`Go back to ` + `CIRCUS OF VALUES`.rainbow.bold, `Exit`], `Would you like to purchase something else?`)
-  space()
+  lilSpace()
 
   if(whatQuestion <= -1){
-    space()
+    lilSpace()
     console.log(`ERROR. CANNOT CANCEL AT THIS TIME.`.brightRed.bold)
-    space()
+    lilSpace()
     whatNext()
-    space()
+    lilSpace()
   };
 
   if(whatQuestion === 0){
-    space()
+    lilSpace()
     circusFunction()
-    space()
+    lilSpace()
     circusChoices()
-    space()
+    lilSpace()
   };
   
   if(whatQuestion === 1){
-    space()
-    //proceed()
+    lilSpace()
+    //lookforenemy()
   };
   
 }

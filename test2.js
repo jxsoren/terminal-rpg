@@ -27,7 +27,7 @@ class Player {
   
   }
   const player = new Player("Player", 100, 10, 40, 0, 0, 2, 2)
-  let currentHealth = `${player.health}hp/100hp`.brightRed
+  let currentHealth = `${player.health} HP/100 HP`.brightRed
   let pauseText = `GAME PAUSED`.underline.cyan.bold
 
   function getBalance(){
