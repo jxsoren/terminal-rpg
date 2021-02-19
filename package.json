@@ -1,0 +1,24 @@
+{
+  "name": "consolerpg",
+  "version": "1.0.0",
+  "description": "\"new project\"",
+  "main": "app.js",
+  "dependencies": {
+    "readline-sync": "^1.4.10",
+    "colors": "^1.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jxsoren/assignments.git"
+  },
+  "author": "jxsoren",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jxsoren/assignments/issues"
+  },
+  "homepage": "https://github.com/jxsoren/assignments#readme"
+}
