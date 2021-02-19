@@ -95,7 +95,7 @@ function pauseFunction(){
     
     function drinkWhiskey(){
         
-        if(inventory.includes(` Old Tom Whiskey`)){
+        if(inventory.includes(` Old Tom Whiskey`.yellow.bold)){
             inventory.splice(inventory.indexOf(` Old Tom Whiskey`), 1)
             lilSpace()
             console.log(`*on radio* ATLAS:`.brightYellow.italic + `Didn't your mother ever teach you any better? I'm sure she is moderately disapointed in your decision making abilities.`.brightWhite)
@@ -174,7 +174,7 @@ function pauseFunction(){
 
         function useItemQuestion(){
         let optionArr = [`Use `+`First Aid Kit`.brightGreen.bold + ` (restores health back to `+`full`.brightGreen.bold+`!)`, ``+`Use Bandage`.brightRed.bold + ` (restores + `+`30`.brightGreen.bold+` health! `+`only`.red.bold+` if in inventory!)`, `Drink `+`Old Tom Whiskey`.yellow.bold+` (`+`only`.red.bold+` if in inventoy!)`, `Smoke a `+`Cigarette`.red.bold+` (`+`only`.red.bold + ` if in inventory!)`, `Exit Inventory and `+`Resume`.brightGreen.bold+` Game`]
-        const tem = ask.keyInSelect(optionArr, `Is there any item in your Inventory that you would like to use right now?`.brightWhite.bold)
+        const useItem = ask.keyInSelect(optionArr, `Is there any item in your Inventory that you would like to use right now?`.brightWhite.bold)
         bigSpace()
 
         if(useItem === 0){
@@ -290,8 +290,8 @@ function attackValue(){
 };
 
  function bigDaddyAttackValue(){
-     let min = 30;
-     let max = 50;
+     let min = 35;
+     let max = 45;
      return Math.floor(Math.random() * (max-min+1)+min)
  }
 
@@ -738,7 +738,7 @@ function bossFight(){
         pauseFunction()
     } else if(choicesChoices === 0){
         bigSpace()
-        console.log(`*on radio* ATLAS:`.brightYellow.italic + ` Nice work, boyo! *(laughter)*. It’s time to end this little masquerade. There ain’t no Atlas, kid. Never was. Fella in my line a work takes on a variety of aliases. Hell, once I was even a China-Mfan for six months. But you’ve been a sport, so I guess I owe you a little honesty. The name’s Frank Fontaine.`)
+        console.log(`*on radio* ATLAS:`.brightYellow.italic + ` Nice work, boyo! *(laughter)*. It’s time to end this little masquerade. There ain’t no Atlas, kid. Never was. Fella in my line a work takes on a variety of aliases. Hell, once I was even a China-Man for six months. But you’ve been a sport, so I guess I owe you a little honesty. The name’s Frank Fontaine.`)
         bigSpace()
 
         bigSpace()
@@ -785,7 +785,7 @@ function credits(){
     bigSpace()
 
     bigSpace()
-    console.log(`To whomever actually has the patientce to finish this game, thank you. No seriously, thank you. Althogh the game is very bare bones, buggy and kinda sloppy, it took me a HUGE ammount of time to finish this game. For the limitations that are inevitable while being a beginner programmer and trying to make a fun, unique, text-based RPG game in the freaking console/terminal of all places, I'm proud of the result, although I can't take full credit as this is a Bioshock inspired game, but nontheless, Thank You `+`${player.name}`.brightCyan.bold+`!!! Quick shoutout to my Dad for pushing me to a deadline, to help me find the motivation finish this project. Also, a shoutout to google for giving me all the answers I needed lol. Shoutout to 'Big Buddy Liam' for play testing the game while it was still INCREDIBLY buggy and for also helping me with the writing and grammar(he takes college level english so, obviously he holds the title for being the most literate man out there ;). ), as that was the hardest part for me haha, the logic was easy.`)
+    console.log(`To whomever actually has the patientce to finish this game, thank you. No seriously, thank you. Althogh the game is very bare bones, buggy and kinda sloppy, it took me a HUGE ammount of time to finish this game. For the limitations that are inevitable while being a beginner programmer and trying to make a fun, unique, text-based RPG game in the freaking console/terminal of all places, I'm proud of the result, although I can't take full credit as this is a Bioshock inspired game, but nontheless, Thank You `+`${player.name}`.brightCyan.bold+`!!! Quick shoutout to my Dad for pushing me to a deadline, to help me find the motivation finish this project. Also, a shoutout to google for giving me all the answers I needed lol. Make sure you check out `+`bradgaming`.magenta.bold+` for setting the World Record in the SpeedRun any% catagory, with a astonishing time of 51.11 seconds. Shoutout to 'Big Buddy Liam' for play testing the game while it was still INCREDIBLY buggy and for also helping me with the writing and grammar(he takes college level english so, obviously he holds the title for being the most literate man out there ;). ), as that was the hardest part for me haha, the logic was easy.`)
     bigSpace()
 
     bigSpace()
@@ -1056,7 +1056,7 @@ function credits(){
         
       } 
   
-      inventory.push(` Old Tom Whiskey`)
+      inventory.push(` Old Tom Whiskey`.yellow.bold)
       player.balance -= 2
       lilSpace()
       console.log(`${circusOfValues[6]} has ben added to your inventory.`)
