@@ -1,15 +1,12 @@
 const ask = require('readline-sync');
 const colors = require('colors');
 
-
 // Global Variables -------------------------------------------------------------------------------------------------------------------------------------
 let game0ver = false;
 let inventory = [` First Aid Kit`];
 let weapons = [` Wrench`.brightYellow.bold]
 let pistolSoldOut = [`Pistol`.bold]
 let shotgunSoldOut = [`Shotgun`.bold]
-
-
 
 // UI/UX Spacing Functions ----------------------------------------------------------------------------------------------------------------------------
 
@@ -25,7 +22,6 @@ function bigSpace(){
     `
     console.log(bigSpacing)
 }
-
 
 // Player Construction --------------------------------------------------------------------------------------------------------------------------------
 class Player {
@@ -55,7 +51,6 @@ class Player {
     player.balance = 0
 }
 
-
 // Enemy Construction v1
   class Enemy {
     constructor(name, health, attack) {
@@ -70,18 +65,17 @@ lilSpace()
 console.log(`1980s Mid-Atlantic. *You awake, finding yourself on a plane headed straight towards the Atlantic Ocean. You brace yourself for impact as the plane crashes. It worked and somehow you are still alive. You swim up to the surface as your lungs start to fill with water. You scan the horizon, spotting a lighthouse in the distance. You muster all the strength left in you and swim over to it. As you walk up to the gold plated doors, about to turn the knob, they swing open on their own. You cautiously step in and see an elevator that looks like it travels down beneath the water. Puzzled but desperate for help, you decide to enter. As you sit in the chair, the elevator shoots downward, thrusting you deep into the murky blue depths. After a few seconds of gray visibility, you see it. The majestic, underwater city that lies below the surface of the Atlantic. After hearing some bald guy yap about a man being entitled to the sweat of his brow. Weirdo. You enter a tube that presumably takes you inside. You witness what looks to be a demented man with claws slice another man in two. You were happy to survive the plane crash and now look at the mess you’re in. Sucks to suck I guess. You find a radio, pick it up and a guy named Atlas tries to give you help through an old radio that was in front of you. He starts to give instructions and asks “would you kindly?” After asking you to do anything. He's pretty nice though, must be Canadian. He informs you about how the remaining survivors are building a submarine to escape this hellhole, but they unfortunately don't have any ADAM or EVE to make the mixture they need for the fuel. He asks you to help them retrieve six ADAM and three EVE in exchange for letting you escape with them. Some obstacles lay ahead however, the only way to get ADAM that you know of is by harvesting it from these creepy little @#$%'s that the inhabitants of Rapture call “Little Sisters”. But first you'll have to kill their protectors, “Big Daddies”. Supposedly these huge, creepy monsters in an oversized Scuba Suit. The only way to get EVE is to loot the dead bodies of “Splicers”. Atlas tells you that there is a wrench just outside of the elevator that you can use as a starting weapon. He also tells you that using a “First Aid Kit” and/or “Bandages”. First aid kits will restore your health back to full, while “Bandages” will restore your health partially. You see a First Aid Kit right next to the wrench and grab them both as ATLAS informs you he will be on the radio, telling you everything you need to know. Just before you walk out though, you pick up a radio frequency on another channel. You switch over and hear a woman talking, she announces herself as Dr. Tenenbaum, Brigid Tenenbaum to be exact. She explains that she was one of the doctors who helped create the Little Sisters and while she understands the severity of her actions, she doesn't want to see them murdered for the sake of harvesting ADAM. She pleads to you, asking if you could save them instead. In return she would reward you handsomely. You think about it, pondering the type of man you are. Are you one to kill those you have the capacity to save? A little girl no less? And all for the prospect of leaving this place? You aren't a sinless man. Maybe this is where you can redeem yourself for all the harm and pain you've caused. Either way, you step out into Rapture for the first time as you take a deep breath, the musty, recycled air fills your lungs as you grip the wrench. Ready to do what's necessary.` 
 .brightWhite.bgBlue)
 lilSpace()
+
 let nameData = ask.question(`*on radio* ATLAS:`.brightYellow.italic + ``.yellow.italic + ` Wait, what is your name? `.brightWhite);
 player.name = nameData
+
 lilSpace()
-console.log(`*on radio* ATLAS:`.brightYellow.italic + ``.yellow.italic + ` ${player.name}`.brightCyan.bold + `? Yeah, you definitely spelled your name wrong just then, but lets get moving.`.brightWhite);
+console.log(`*on radio* ATLAS:`.brightYellow.italic + ``.yellow.italic + ` ${player.name}`.brightCyan.bold + `? Yeah, you definitely spelt your name wrong just then, but lets get moving.`.brightWhite);
 bigSpace()
 
 console.log(`*on radio* ATLAS:`.brightYellow.italic + ``.yellow.italic + ` Okay, now that you have your wrench and health kit, you should be all set to start your hunting. Continue walking down the hall you are in by pressing the "1" key, until you eventually encounter an enemy. If you are too weak to fight or have alrady gotten all of the resorces you needed from said enemy you can just flee to live another day. Let's get a move on, kid! The Splicers are begining to discover where we are hiding.`.brightWhite)
 bigSpace()
 console.log(`CURRENT OBJECTIVE: Collect all materials to advance.`.brightWhite.bold)
-
-
-
 
 // Pause Menu and Options -----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -94,7 +88,6 @@ function pauseFunction(){
     let materialsText = `MATERIALS GATHERED`.underline.bold
     
     function drinkWhiskey(){
-        
         if(inventory.includes(` Old Tom Whiskey`.yellow.bold)){
             inventory.splice(inventory.indexOf(` Old Tom Whiskey`), 1)
             lilSpace()
@@ -111,7 +104,6 @@ function pauseFunction(){
         }
     }
     
-
     function smokeCig(){
         if(inventory.includes(` Cigarette`.red.bold)){
             inventory.splice(inventory.indexOf(` Cigarette`), 1)
@@ -205,9 +197,7 @@ function pauseFunction(){
     
 };
 
- 
-
-  // Player Weapon Damage Values ----------------------------------------------------------------------------------------------------------------------------------
+ // Player Weapon Damage Values ----------------------------------------------------------------------------------------------------------------------------------
 
 function playerWrenchDamage(){
     let min = 15;
@@ -229,7 +219,6 @@ function playerShotgunDamage(){
     return Math.floor(Math.random() * (min-max+1)+min)
 }
 lilSpace()
-
 
 //Game Functions---------------------------------------------------------------------------------------------------------------------------------------------------
 function lookforenemy(){
@@ -281,7 +270,6 @@ function restoreFitstAidKit(){
     
 }
 
-
 // Enemy Creation and Setting Enemy Stats ---------------------------------------------------------------------------------------------------------------------
 function attackValue(){
     let min = 15;
@@ -289,12 +277,11 @@ function attackValue(){
     return Math.floor(Math.random() * (max-min+1)+min)
 };
 
- function bigDaddyAttackValue(){
+function bigDaddyAttackValue(){
      let min = 35;
      let max = 45;
      return Math.floor(Math.random() * (max-min+1)+min)
- }
-
+}
 
 function makeEnemy(){
     const randomNum = Math.floor(Math.random() * 4)
@@ -335,8 +322,6 @@ function makeEnemy(){
     }
 }
 
-
-
 // Looting Functions ---------------------------------------------------------------------------------------------------------------------------------------
 function loot(){
     const randomNum = Math.floor(Math.random() * 4); 
@@ -357,7 +342,6 @@ function moneyTime(){
     return Math.floor(Math.random() * (max-min+1)+min)
 }
 
-
 // Attack Phase ------------------------------------------------------------------------------------------------------------------------------------------------
 function attackStage(enemy){
     while(enemy.health > 0 && player.health > 0){
@@ -370,7 +354,6 @@ function attackStage(enemy){
 
         let playerDmgValue = player.attack
         let enemyDamgValue = enemy.attack
-
 
         if(userResponse === 3){
             circusFunction()
@@ -386,7 +369,6 @@ function attackStage(enemy){
             weaponChoices()
         }
 
-        
         function weaponChoices(){
             if(userResponse === 0){
             let chooseWeapon = ask.keyInSelect(weapons, `! CHOOSE A WEAPON TO ATTACK WITH !`.bold.brightYellow)
@@ -404,8 +386,7 @@ function attackStage(enemy){
                 bigSpace() 
             }
 
-
-             if(weapons.includes(` Pistol`.blue.bold) && chooseWeapon === 1 && player.pistolRounds >= 1){
+            if(weapons.includes(` Pistol`.blue.bold) && chooseWeapon === 1 && player.pistolRounds >= 1){
                 playerDmgValue = playerPistolDamage() 
                 enemy.health -= playerDmgValue
                 player.health -= enemyDamgValue        
@@ -415,7 +396,6 @@ function attackStage(enemy){
                     console.log(`CHOOSE YOUR WEAPON AGAIN!`.brightWhite.bold)
                     weaponChoices()
             }
-                
                 
             if(weapons.includes(` Shotgun`.red.bold) && chooseWeapon === 2 && player.shotgunShells >= 1){
                 playerDmgValue = playerShotgunDamage()
@@ -428,7 +408,6 @@ function attackStage(enemy){
             }      
             console.log(`Your ${weapons[chooseWeapon]} is now equiped.`)
             lilSpace()
-
 
             // Enemy Dialog ---------------------------------------------------------------------------------------------------------------------
             function daddyDialogFunction(){
@@ -459,34 +438,34 @@ function attackStage(enemy){
 
             } else if(enemy.name === "Security Bot"){
                 lilSpace()
-                console.log(`The ${enemy.name}`.brightRed.bold + ` activates it's turret defense system and sprays brass bullets into ${player.name}`.brightCyan.bold +` dealing` + `${enemyDamgValue}`.brightRed.bold.underline + ` damage!!!`)
+                console.log(`The ${enemy.name}`.brightRed.bold + ` activates it's turret defense system and sprays brass bullets into ${player.name}`.brightCyan.bold +` dealing ` + `${enemyDamgValue}`.brightRed.bold.underline + ` damage!!!`)
                 bigSpace()
             }
 
             // Player Weapon Dialog ------------------------------------------------------------------------------------------------------------------------------
             weaponLog()
             function weaponLog(){
-            if(chooseWeapon === -1){
-                console.log(`*on radio* ATLAS:`.brightYellow.italic + ` YOU DIDN'T CHOOSE A WEAPON! NEXT TIME, CHOOSE A WEAPON TO DEFEND YOURSELF WITH!`.brightBlue.bold)
-                lilSpace()
-            } else if(chooseWeapon === 0){
-                lilSpace()
-                console.log(`${player.name}`.brightCyan.bold + ` grips the Wrench tightly, and smacks `+`${enemy.name}`.brightRed.bold + ` for ` + `${playerDmgValue}`.brightCyan.bold.underline + ` damage!!!`);
-                lilSpace()
-            } else if (weapons.includes(` Pistol`.blue.bold) && chooseWeapon === 1 && player.pistolRounds > 1){
-                lilSpace()
-                console.log(`${player.name}`.brightCyan.bold + ` aims the pistol and pulls the trigger! `+`PAP!!!`.brightYellow.bold+` The chamber fires, the lead bullet hits `+`${enemy.name}`.brightRed.bold+` for `+`${playerDmgValue}`.brightCyan.bold.underline + ` damage!!!`);
-                lilSpace()
-                console.log(`*on radio* ATLAS:`.brightYellow.italic + `Nice shootin' kid!`)
-                bigSpace()
-            } else if (chooseWeapon === 2){
-                lilSpace()
-                console.log(`${player.name}`.brightCyan.bold + ` lines up the Shotgun and yanks the trigger. *chk, chk* `+`BOOOOOM!`.brightYellow.bold+` The barrel fires 6 steel pellets that hit `+`${enemy.name}`.brightRed.bold + ` for ` + `${playerDmgValue}`.brightCyan.bold + ` damage!!!`);
-                bigSpace()
-                console.log(`*on radio* ATLAS:`.brightYellow.italic + `Nice shootin' kid!`)
-                bigSpace()
+                if(chooseWeapon === -1){
+                    console.log(`*on radio* ATLAS:`.brightYellow.italic + ` YOU DIDN'T CHOOSE A WEAPON! NEXT TIME, CHOOSE A WEAPON TO DEFEND YOURSELF WITH!`.brightBlue.bold)
+                    lilSpace()
+                } else if(chooseWeapon === 0){
+                    lilSpace()
+                    console.log(`${player.name}`.brightCyan.bold + ` grips the Wrench tightly, and smacks `+`${enemy.name}`.brightRed.bold + ` for ` + `${playerDmgValue}`.brightCyan.bold.underline + ` damage!!!`);
+                    lilSpace()
+                } else if (weapons.includes(` Pistol`.blue.bold) && chooseWeapon === 1 && player.pistolRounds > 1){
+                    lilSpace()
+                    console.log(`${player.name}`.brightCyan.bold + ` aims the pistol and pulls the trigger! `+`PAP!!!`.brightYellow.bold+` The chamber fires, the lead bullet hits `+`${enemy.name}`.brightRed.bold+` for `+`${playerDmgValue}`.brightCyan.bold.underline + ` damage!!!`);
+                    lilSpace()
+                    console.log(`*on radio* ATLAS:`.brightYellow.italic + `Nice shootin' kid!`)
+                    bigSpace()
+                } else if (chooseWeapon === 2){
+                    lilSpace()
+                    console.log(`${player.name}`.brightCyan.bold + ` lines up the Shotgun and yanks the trigger. *chk, chk* `+`BOOOOOM!`.brightYellow.bold+` The barrel fires 6 steel pellets that hit `+`${enemy.name}`.brightRed.bold + ` for ` + `${playerDmgValue}`.brightCyan.bold + ` damage!!!`);
+                    bigSpace()
+                    console.log(`*on radio* ATLAS:`.brightYellow.italic + `Nice shootin' kid!`)
+                    bigSpace()
+                }
             }
-             }
             }
         }
          
@@ -503,7 +482,6 @@ function attackStage(enemy){
                         bigSpace()
                     }
                 console.log(`--------------------------------------------------------GAME RESUMED------------------------------------------------------`.brightGreen.bold)
-
             }
 
             if(player.health < 30 && inventory.includes(` First Aid Kit`)){
@@ -525,7 +503,6 @@ function attackStage(enemy){
                 console.log(`--------------------------------------------------------GAME RESUMED------------------------------------------------------`.brightGreen.bold)
             }
 
-
             // Looting Stage ---------------------------------------------------------------------------------------------------------------------
             if(enemy.health <= 0){
                 const randomItem = loot()
@@ -538,7 +515,6 @@ function attackStage(enemy){
                 bigSpace()
                 player.deposit(moneyT)
                 bigSpace() 
-
 
                 if(enemy.name === `Big Daddy` && player.adam < 6){
                     lilSpace()
@@ -566,10 +542,10 @@ function attackStage(enemy){
                         
                     }
 
-                        function remainingAdam(){
-                            let sum = 6 - player.adam 
-                                return sum
-                        }
+                    function remainingAdam(){
+                        let sum = 6 - player.adam 
+                            return sum
+                    }
                     lilSpace()
                     console.log(`*on radio* ATLAS:`.brightYellow.italic + ` OBJECTIVE PROGRESS! You currently have ${player.adam}/6 Adam Bottles. Collect ${remainingAdam()} more Adam Bottle for the fuel mixture to get out of this hellhole`.brightGreen.bold)
                     lilSpace()
@@ -615,13 +591,10 @@ function attackStage(enemy){
             lilSpace()
             
         }   
-    
   }
 };
 
-
 // MAIN GAME LOOP -----------------------------------------------------------------------------------------------------------------------------------------------
-
 
 function gameOptions(){
     const gameChoices = ["Search the hallways of Rapture for trouble", `Open `+`${player.name}'s`.brightCyan.bold+` Stats and Inventory`, `Visit the ` + `CIRCUS OF VALUES`.rainbow.bold];
@@ -683,8 +656,6 @@ while(!game0ver){
         }
     }
 
-   
-
     if(player.health <= 0){
         bigSpace()
         console.log("GAME 0VER")
@@ -694,10 +665,7 @@ while(!game0ver){
         credits()
         bigSpace()
     }
-    
 };
-
-
 
 function loading(){
     const load = `
@@ -714,7 +682,6 @@ function loading(){
     console.log(`
     COMPLETE.
     `)
-    
 }
 
 function bossFight(){
@@ -830,12 +797,10 @@ function credits(){
     return currentBalance1
   }
   
-
   function circusFunction(){
     bigSpace()
     console.log(`--------------------------------------------------------GAME PAUSED------------------------------------------------------`.brightRed.bold)
-    let clownVoice = `*scratchy, prerecorded, mocking clown voice* `.brightYellow .bold + `W E L C O M E  T O  T H E  C I R C U S  O F  V A L U E S ! ! !`.rainbow.bold.underline
-
+    let clownVoice = `*scratchy, pre-recorded, mocking clown voice* `.brightYellow .bold + `W E L C O M E  T O  T H E  C I R C U S  O F  V A L U E S ! ! !`.rainbow.bold.underline
 
     let circusOfValuesMenu = 
     
@@ -860,12 +825,10 @@ function credits(){
    |`.rainbow.bold + `
   ` +             `-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_`.rainbow.underline.bold
     
-
     console.log(clownVoice)
       console.log(circusOfValuesMenu.bgMagenta.bold)
   
   };
-  
   
   function checkInv(){
     lilSpace()
@@ -898,7 +861,6 @@ function credits(){
     let vendingChoice = ask.keyInSelect(circusOfValues, `What would you like to purchace from the ` + `CIRCUS OF VALUES`.rainbow.bold + `?` + ` You currently have ${checkBalance()}` )
     bigSpace()
 
-
     if(vendingChoice === 8){
         console.log(`--------------------------------------------------------GAME RESUMED------------------------------------------------------`.brightGreen.bold)
         gameOptions()
@@ -918,7 +880,7 @@ function credits(){
         circusFunction()
         circusChoices()
         bigSpace()
-        console.log(`*scratchy, prerecorded, mocking clown voice* `.brightYellow .bold +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.rainbow.bold + ` --You don't have enough money to purchase this item.--` .bold)
+        console.log(`*scratchy, pre-recorded, mocking clown voice* `.brightYellow .bold +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.rainbow.bold + ` --You don't have enough money to purchase this item.--` .bold)
         bigSpace()
        
       }
@@ -937,7 +899,7 @@ function credits(){
         circusFunction()
         circusChoices()
         bigSpace()
-        console.log(`*scratchy, prerecorded, mocking clown voice* `.brightYellow .bold +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.rainbow .bold + ` --You don't have enough money to purchase this item.--` .bold)
+        console.log(`*scratchy, pre-recorded, mocking clown voice* `.brightYellow .bold +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.rainbow .bold + ` --You don't have enough money to purchase this item.--` .bold)
         lilSpace()
         
       }
@@ -955,7 +917,7 @@ function credits(){
         lilSpace()
         circusFunction()
         circusChoices()
-        console.log(`*scratchy, prerecorded, mocking clown voice* `.brightYellow .bold +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.rainbow .bold + ` --You don't have enough money to purchase this item.--` .bold) 
+        console.log(`*scratchy, pre-recorded, mocking clown voice* `.brightYellow .bold +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.rainbow .bold + ` --You don't have enough money to purchase this item.--` .bold) 
         lilSpace()
         
       }
@@ -983,7 +945,7 @@ function credits(){
         lilSpace()
         circusFunction()
         circusChoices()
-        console.log(`*scratchy, prerecorded, mocking clown voice* `.brightYellow .bold +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.bold.briightWhite + ` --You don't have enough money to purchase this item.--` .bold) 
+        console.log(`*scratchy, pre-recorded, mocking clown voice* `.brightYellow .bold +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.bold.briightWhite + ` --You don't have enough money to purchase this item.--` .bold) 
         lilSpace()
         
       }  
@@ -1001,13 +963,12 @@ function credits(){
         lilSpace()
         circusFunction()
         circusChoices()
-        console.log(`*scratchy, prerecorded, mocking clown voice* `.brightYellow +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.bold.brightWhite + `--You don't have enough money to purchase this item.--`) 
+        console.log(`*scratchy, pre-recorded, mocking clown voice* `.brightYellow +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.bold.brightWhite + `--You don't have enough money to purchase this item.--`) 
         lilSpace()
       }
       
-
       if(!weapons.includes(` Pistol`.blue.bold) && vendingChoice === 4 ){
-        console.log(`*scratchy, prerecorded, mocking clown voice* `.brightYellow +`YOU MUST BUY THE PISTOL FIRST BEFORE YOU BUY THE SHOTGUN!!!`.brightRed)
+        console.log(`*scratchy, pre-recorded, mocking clown voice* `.brightYellow +`YOU MUST BUY THE PISTOL FIRST BEFORE YOU BUY THE SHOTGUN!!!`.brightRed)
         whatNext()
       } else if(vendingChoice === 4 && weapons.includes(` Shotgun`.red.bold)){
           lilSpace()
@@ -1024,7 +985,6 @@ function credits(){
           whatNext()
           lilSpace()
         }
-        
     }; 
     
     if(vendingChoice === 5 && player.balance >= 4 || vendingChoice === 5 && player.balance < 2 ){
@@ -1032,10 +992,8 @@ function credits(){
         lilSpace()
         circusFunction()
         circusChoices()
-        console.log(`*scratchy, prerecorded, mocking clown voice* `.brightYellow +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.rainbow.rainbow.bold+ `--You don't have enough money to purchase this item.--`) 
-        lilSpace()
-        
-       
+        console.log(`*scratchy, pre-recorded, mocking clown voice* `.brightYellow +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.rainbow.rainbow.bold+ `--You don't have enough money to purchase this item.--`) 
+        lilSpace() 
       }  
   
       player.balance -= 4
@@ -1051,9 +1009,8 @@ function credits(){
         lilSpace()
         circusFunction()
         circusChoices()
-        console.log(`*scratchy, prerecorded, mocking clown voice* `.brightYellow.bold +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.brightWhite.bold + ` --You don't have enough money to purchase this item.--`.bold )
-        lilSpace()
-        
+        console.log(`*scratchy, pre-recorded, mocking clown voice* `.brightYellow.bold +`COME BACK WHEN YOU GET SOME MONEY, BUDDY.`.brightWhite.bold + ` --You don't have enough money to purchase this item.--`.bold )
+        lilSpace()  
       } 
   
       inventory.push(` Old Tom Whiskey`.yellow.bold)
@@ -1103,9 +1060,5 @@ function credits(){
       console.log(`--------------------------------------------------------GAME RESUMED------------------------------------------------------`.brightGreen.bold)
       gameOptions()
     };
-    
   }
-
-
-
   // END OF VENDING MACHINE -----------------------------------------------------------------------------------------------------------------------------
