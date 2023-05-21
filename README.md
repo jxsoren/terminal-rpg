@@ -19,7 +19,7 @@ npm install
 ```
 5. After the dependencies are installed, you can start the game by running the following command:
 ```
-npm start
+node app.js
 ```
 6. The game will start in your terminal and prompt you to select a player name and class. From there, you will be guided through the game and prompted to make various choices along the way.
 
