@@ -10,7 +10,7 @@ How to play:
 
 3. Once you have the repository on your local machine, navigate to the project directory in your terminal. This can be done using the "cd" command. For example, if you downloaded the repository to your Downloads folder, you can navigate to the project directory by running the following command in your terminal:
 ```
-cd ~/Downloads/terminal-rpg-master
+cd ~/Downloads/terminal-rpg
 ```
 
 4. Once you are in the project directory, you can install the necessary dependencies by running the following command:
